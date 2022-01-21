@@ -1,3 +1,4 @@
+//enter numbe and Display result like unit,ten,hundred....
 const ps=require("readline-sync");
 var number = ps.question("Enter a number 1,10,100,1000......\n");
 if(number==1)
