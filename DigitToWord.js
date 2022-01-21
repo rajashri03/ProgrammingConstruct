@@ -10,5 +10,5 @@ function number2words(n){
     return number2words(~~(n/1000)) + " thousand" + (n%1000 != 0? " " + number2words(n%1000): "");
 }
 var readlineSync = require("readline-sync");
-var numbers = readlineSync.question("First Name:");
+var numbers = readlineSync.question("Enter Number:");
 console.log(number2words(numbers));
