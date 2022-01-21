@@ -1,27 +1,14 @@
+//Covert digit to word using function
+var num = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split(" ");
+var tens = "twenty thirty forty fifty sixty seventy eighty ninety".split(" ");
 
-var SingleDigitNumber=(Math.floor(Math.random()*6)+1);
-console.log(SingleDigitNumber);
-if(SingleDigitNumber==1)
-{
-    console.log("One");
+function number2words(n){
+    if (n < 20) return num[n];
+    var digit = n%10;
+    if (n < 100) return tens[~~(n/10)-2] + (digit? "-" + num[digit]: "");
+    if (n < 1000) return num[~~(n/100)] +" hundred" + (n%100 == 0? "": " and " + number2words(n%100));
+    return number2words(~~(n/1000)) + " thousand" + (n%1000 != 0? " " + number2words(n%1000): "");
 }
-else if(SingleDigitNumber==2)
-{
-    console.log("Two");
-}
-else if(SingleDigitNumber==3)
-{
-    console.log("Three");
-}
-else if(SingleDigitNumber==4)
-{
-    console.log("Four");
-}
-else if(SingleDigitNumber==5)
-{
-    console.log("Five");
-}
-else
-{
-    console.log("Six");
-}
+var readlineSync = require("readline-sync");
+var numbers = readlineSync.question("First Name:");
+console.log(number2words(numbers));
